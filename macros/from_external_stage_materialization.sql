@@ -25,7 +25,7 @@
     -- {%- set old_relation = adapter.get_relation(schema=schema, identifier=identifier) -%}
     --{%- set target_relation = api.Relation.create(schema=schema, identifier=identifier, type='table') -%}
     {%- set target_relation = 'TRANSACTIONSPERIOD_TEST' -%}
-
+ {%- set namespace_stage_name = 'dummy' -%}
     -- {%- set full_refresh_mode = (flags.FULL_REFRESH == True) -%}
     -- {%- set exists_as_table = (old_relation is not none and old_relation.is_table) -%}
     -- {%- set should_drop = (full_refresh_mode or not exists_as_table) -%}
