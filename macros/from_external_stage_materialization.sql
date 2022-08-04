@@ -5,14 +5,14 @@
 -- {% macro ensure_external_stage(stage_name, s3_url, file_format, temporary=False) %}
 --     {{ log('Making external stage: ' ~ [stage_name, s3_url, file_format, temporary] | join(', ')) }}
 --     create or replace stage {{ 'temporary' if temporary }} {{ stage_name }}
---         url='{{ s3_url }}'
+--         url='{{ s3namespace_stage_name_url }}'
 --         credentials=(aws_key_id='{{ env_var("SNOWFLAKE_AWS_ACCESS_KEY_ID") }}' aws_secret_key='{{ env_var("SNOWFLAKE_AWS_SECRET_ACCESS_KEY") }}')
 --         file_format = {{ file_format }};
 -- {% endmacro %}
 
 {% materialization from_external_stage, adapter='snowflake' -%}
     {%- set identifier = model['alias'] -%}
-    -- {%- set stage_name = namespace_stage_name(config.get('stage_name', default=identifier ~ '_stage')) -%}
+    --  {%- set stage_name = namespace_stage_name(config.get('stage_name', default=identifier ~ '_stage')) -%}
     {%- set stage_name = '@azureblobdata/fact/' -%}
 
     -- {%- set stage_url = config.require('stage_url') -%}
