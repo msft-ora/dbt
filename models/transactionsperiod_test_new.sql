@@ -1,8 +1,6 @@
 {{
   config(
-        materialized='from_external_stage',
-         stage_url = '@azureblobdata/fact/'
-
+        materialized='from_external_stage'
   )
 }}
 
@@ -20,6 +18,8 @@ $1:Factor Factor,
 $1:Rate Rate,
 $1:ChangedBy ChangedBy,
 'HVMG' client_nm,
-current_timestamp row_insert_ts
+current_timestamp row_insert_ts,
+'I' sys_change_operation,
+'test' JSON_FILENAME
 from {{ external_stage() }}
 (file_format=> POC.HVMG.JSON)

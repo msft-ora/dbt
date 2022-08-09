@@ -17,6 +17,8 @@ $1:Factor Factor,
 $1:Rate Rate,
 $1:ChangedBy ChangedBy,
 'HVMG' client_nm,
-current_timestamp row_insert_ts
-from @azureblobdata/fact/HVMG_TRANSACTIONSPERIOD_2022-08-03_030739.json
+current_timestamp row_insert_ts,
+'I' sys_change_operation,
+METADATA$FILENAME JSON_FILENAME
+from @azureblobdata/fact/{{FILENAME}}
 (file_format=> POC.HVMG.JSON)
