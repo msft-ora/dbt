@@ -1,5 +1,8 @@
 {{
-  config(materialized='incremental')
+  config(materialized='incremental',
+  pre_hook="delete from {{this}} " 
+  
+  )
 }}
 
 
@@ -20,5 +23,5 @@ $1:ChangedBy ChangedBy,
 current_timestamp row_insert_ts,
 'I' sys_change_operation,
 METADATA$FILENAME JSON_FILENAME
-from @azureblobdata/fact/{{FILENAME}}
+from @azureblobdata/fact/{{ var("filename") }}
 (file_format=> POC.HVMG.JSON)
