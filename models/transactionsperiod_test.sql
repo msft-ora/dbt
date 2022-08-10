@@ -1,6 +1,6 @@
 {{
   config(materialized='incremental',
-  pre_hook="delete from {{this}} " 
+  pre_hook="delete from {{this}} where itemid=2 " 
   
   )
 }}
