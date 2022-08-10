@@ -1,5 +1,8 @@
 {{
-  config(materialized='incremental')
+  config(materialized='incremental',
+  pre_hook="delete from {{this}} " 
+  
+  )
 }}
 
 
