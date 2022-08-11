@@ -26,6 +26,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 vars:
   filename: ''
+  clientname: ''
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -37,3 +38,8 @@ models:
     # Applies to all files under models/example/
     example:
       materialized: view
+      schema: RAW
+    transactionsperiod_raw:
+      schema: RAW
+    transactionperiod_landing:
+      schema: LANDING  
