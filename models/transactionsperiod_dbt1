@@ -1,0 +1,27 @@
+{{
+  config(materialized='incrmental'  ,
+  pre_hook="delete from {{this}} t using poc.hvmg.transactionsperiod_delta s 
+  where t.client_nm=s.client_nm and t.siteid=s.siteid and t.fcid=s.fcid and t.year=s.year and t.period=s.period and t.TimeChange=s.TimeChange and t.TimeChangeEnd is null "
+  )
+}}
+
+
+select
+ client_nm,
+ siteid,
+ fcid,
+year,
+ period,
+TimeChange,
+ TimeChangeEnd,
+ ItemID,
+ Qty,
+ Amt,
+ Factor,
+ Rate,
+ ChangedBy,
+current_timestamp row_insert_ts
+from poc.hvmg.transactionsperiod_delta
+
+
+
