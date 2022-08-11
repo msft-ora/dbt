@@ -22,3 +22,4 @@ current_timestamp row_insert_ts,
 METADATA$FILENAME JSON_FILENAME
 from @azureblobdata/fact/{{ var("filename") }}
 (file_format=> POC.HVMG.JSON)
+-- HVMG_TRANSACTIONSPERIOD_2022-08-03_030739.json

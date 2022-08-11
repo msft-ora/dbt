@@ -1,5 +1,5 @@
 {{
-  config(materialized='incremental'  
+  config(materialized='table'  
   )
 }}
 
@@ -19,5 +19,5 @@ TimeChange,
  Rate,
  ChangedBy,
 current_timestamp row_insert_ts
-from {{ transactionsperiod_test }}
+from {{ ref('transactionsperiod_test') }}
 
