@@ -1,3 +1,8 @@
+{{
+  config(materialized='table' 
+)
+}}
+
 select 
 c.clientid
 ,sl.siteid sitegroupid
@@ -9,7 +14,7 @@ c.clientid
 ,sli.code4
 ,sli.code5
 ,sli.code6
-,sli.isusecustome
+,sli.isusecustom
 ,current_timestamp
 from poc.raw.siteslists sl
 join poc.analytics.clients c 
