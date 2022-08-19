@@ -1,0 +1,21 @@
+{{
+  config(materialized='table' 
+)
+}}
+
+SELECT CLIENT_NM
+, FCID
+, DESCRIPTION
+, MODE
+, ISEDITABLE
+, ISACTIVE
+, "SORT"
+, STARTYEAR
+, STARTPERIOD
+, ENDYEAR
+, ENDPERIOD
+, OPTIONSCSV
+, ISWRITELOCKED
+, ROLES
+, current_timestamp
+FROM POC.RAW."FC.MASTER"

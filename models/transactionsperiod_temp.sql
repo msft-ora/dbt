@@ -3,4 +3,4 @@
 }}
 
 
-select {{ gen_transactionsperiod_landing( 'HVMG', 'HVMG_TRANSACTIONSPERIOD_2022-08-03_030739.json' ) }}
+select {{ gen_transactionsperiod_landing( 'HVMG', 'HVMG_TRANSACTIONSPERIOD_2022-08-18_210301.json' ) }}
