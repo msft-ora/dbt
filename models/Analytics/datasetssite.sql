@@ -1,5 +1,6 @@
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -15,6 +16,6 @@ SELECT
   , so.ENDPERIOD
   , so.UPDATEDAILYACTUALSSETTIME
 
-FROM POC.RAW."FC.SITEOPTIONS" so
+FROM POC.HVMG_RAW."FC.SITEOPTIONS" so
 join poc.analytics.clients c
 on so.client_nm =c.name

@@ -1,5 +1,6 @@
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -19,6 +20,6 @@ SELECT
   , m.ISWRITELOCKED
   , m.ROLES
 
-FROM POC.RAW."FC.MASTER"  m
+FROM POC.HVMG_RAW."FC.MASTER"  m
 join poc.analytics.clients c
   on m.client_nm =c.name

@@ -1,5 +1,6 @@
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -9,6 +10,6 @@ SELECT
     , o.SITEID
     , o.NAME
     , o.VALUE
-FROM POC.raw.OPTIONS o
+FROM POC.HVMG_raw.OPTIONS o
 join poc.analytics.clients c
 on o.client_nm =c.name

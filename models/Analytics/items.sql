@@ -1,5 +1,6 @@
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -27,6 +28,6 @@ SELECT
   , i.ALTTAG2
   , i.NAMESHORT
 
-FROM POC.RAW.ITEMS i
+FROM POC.HVMG_RAW.ITEMS i
 join poc.analytics.clients c
   on i.client_nm =c.name

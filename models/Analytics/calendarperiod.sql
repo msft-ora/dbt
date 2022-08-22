@@ -1,6 +1,7 @@
 
 {{
-  config(materialized='table' 
+  config(materialized='table'   ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -29,6 +30,6 @@ SELECT
   , cld.ACTUALYEAR
   , cld.ACTUALMONTH
 
-FROM POC.raw.CALENDARPERIOD cld
+FROM POC.hvmg_raw.CALENDARPERIOD cld
 join poc.analytics.clients c
 on cld.client_nm =c.name

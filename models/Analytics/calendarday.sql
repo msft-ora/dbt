@@ -1,6 +1,7 @@
 
 {{
-  config(materialized='table' 
+  config(materialized='table'   ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -15,6 +16,6 @@ SELECT
   , cd.FISCALPERIODSTART
   , cd.FISCALPERIODSTOP
 
-FROM POC.raw.CALENDARDAY cd
+FROM POC.hvmg_raw.CALENDARDAY cd
  join poc.analytics.clients c
 on cd.client_nm =c.name
