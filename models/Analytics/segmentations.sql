@@ -1,5 +1,6 @@
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -11,6 +12,6 @@ SELECT
   , s.SEGMENTTYPE
   , s.SEGMENTVALUE
 
-FROM POC.RAW.SEGMENTATIONS s
+FROM POC.HVMG_RAW.SEGMENTATIONS s
 join poc.analytics.clients c 
   on s.client_nm =c.name

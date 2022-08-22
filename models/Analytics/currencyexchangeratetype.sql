@@ -1,5 +1,6 @@
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -11,6 +12,6 @@ c.clientid
 , cert.LABEL
 , cert.CODE
 
-FROM POC.raw.CURRENCYEXCHANGERATETYPE cert
+FROM POC.hvmg_raw.CURRENCYEXCHANGERATETYPE cert
 join poc.analytics.clients c
   on cert.client_nm =c.name

@@ -1,6 +1,6 @@
 {{
-  config(materialized='table' 
-)
+  config(materialized='table' ,
+  schema='ANALYTICS')
 }}
 
 SELECT 
@@ -9,6 +9,6 @@ SELECT
   , sg.TAG SITEGROUPCODE
   , sg.NAME SITEGROUPNAME
 
-FROM POC.RAW.SITESGROUP sg
+FROM POC.HVMG_RAW.SITESGROUP sg
 join poc.analytics.clients c
   on sg.client_nm =c.name

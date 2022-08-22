@@ -1,6 +1,7 @@
 
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -11,6 +12,6 @@ SELECT
     , ce.ReportingCurrencyId
     , ce.CurrencyExchangeRateTypeId
     , ce.IsActive
-FROM poc.raw.CurrencyExchangeRate ce
+FROM poc.hvmg_raw.CurrencyExchangeRate ce
 join poc.analytics.clients c
   on ce.client_nm =c.name

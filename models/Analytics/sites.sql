@@ -1,5 +1,6 @@
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -35,10 +36,10 @@ SELECT
   , sb.exceptionreason
   , sb.units
 
-FROM POC.RAW.SITES s
+FROM POC.HVMG_RAW.SITES s
 join poc.analytics.clients c
   on s.client_nm =c.name
-left join POC.RAW.SITESADDRESSES sa
+left join POC.HVMG_RAW.SITESADDRESSES sa
   on s.client_nm=sa.client_nm and s.siteid=sa.siteid
-left join POC.RAW.SITESBILLING sb
+left join POC.HVMG_RAW.SITESBILLING sb
   on s.client_nm=sb.client_nm and s.siteid=sb.siteid

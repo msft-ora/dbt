@@ -1,5 +1,6 @@
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -8,14 +9,14 @@ c.clientid
 , t.ID
 , t.PID
 , t.TAG
-, t."SORT"
-, t."TYPE"
+, t.sort
+, t.type
 , t.LABEL
-, t."DATA"
-, t."ROLES"
+, t.DATA
+, t.ROLES
 , t.ITEMID
 , t.LASTMODIFIEDDATE
 
-FROM POC.raw.TYPES t
+FROM POC.hvmg_raw.TYPES t
 join poc.analytics.clients c
 on t.client_nm =c.name

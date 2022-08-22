@@ -1,6 +1,7 @@
 
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -13,6 +14,6 @@ c.clientid
 , cr.ISREPORTINGCURRENCY
 , cr.ISACTIVE
 
-FROM POC.raw.CURRENCY cr
+FROM POC.hvmg_raw.CURRENCY cr
 join poc.analytics.clients c
   on cr.client_nm =c.name

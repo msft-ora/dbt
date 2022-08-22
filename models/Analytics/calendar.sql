@@ -1,6 +1,7 @@
 
 {{
-  config(materialized='table' 
+  config(materialized='table'   ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -13,6 +14,6 @@ SELECT
   , cld.WEEKSTART
   , cld.CLIENT_NM
 
-FROM POC.raw.CALENDAR cld
+FROM POC.hvmg_raw.CALENDAR cld
 join poc.analytics.clients c
 on cld.client_nm =c.name

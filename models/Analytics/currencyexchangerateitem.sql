@@ -1,6 +1,7 @@
 
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -12,7 +13,7 @@ c.clientid
 , cc.CURRENCYRATE
 , cc.DATE
 
-FROM POC.raw.CURRENCYEXCHANGERATEITEM cc
+FROM POC.hvmg_raw.CURRENCYEXCHANGERATEITEM cc
 join poc.analytics.clients c
   on cc.client_nm =c.name
 

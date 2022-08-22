@@ -1,5 +1,6 @@
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -16,8 +17,8 @@ select
   ,sli.code6
   ,sli.isusecustom
 
-from poc.raw.siteslists sl
+from poc.hvmg_raw.siteslists sl
 join poc.analytics.clients c 
   on sl.client_nm =c.name
-join poc.raw.siteslistsitems sli
+join poc.hvmg_raw.siteslistsitems sli
   on sl.client_nm=sli.client_nm and sl.id=sli.listid
