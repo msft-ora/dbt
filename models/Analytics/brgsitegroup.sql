@@ -1,6 +1,7 @@
 {{
   config(materialized='table'  ,
-  schema='ANALYTICS'
+  schema='ANALYTICS',
+  tags='site'
 )
 }}
 

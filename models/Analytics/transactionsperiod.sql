@@ -1,5 +1,6 @@
 {{
-  config(materialized='table' 
+  config(materialized='table'  ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -19,6 +20,6 @@ SELECT
   , t.RATE
   , t.CHANGEDBY
 
-FROM POC.raw.TRANSACTIONSPERIOD t
+FROM POC.hvmg_raw.TRANSACTIONSPERIOD t
 join poc.analytics.clients c
   on t.client_nm =c.name
