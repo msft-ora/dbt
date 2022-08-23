@@ -1,5 +1,6 @@
 {{
-  config(materialized='table' 
+  config(materialized='table'   ,
+  schema='ANALYTICS'
 )
 }}
 
@@ -16,6 +17,6 @@ SELECT
   , t.ChangedBy
   , t.Factor
 
-FROM poc.raw.TransactionsDayDetail t
+FROM poc.hvmg_raw.TransactionsDay t
 join poc.analytics.clients c
   on t.client_nm =c.name
