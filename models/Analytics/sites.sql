@@ -36,7 +36,7 @@ SELECT
   , sb.exception
   , sb.exceptionreason
   , sb.units
-
+,current_timestamp ROW_INSERT_TS
 FROM POC.HVMG_RAW.SITES s
 join poc.analytics.clients c
   on s.client_nm =c.name

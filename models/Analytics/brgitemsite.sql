@@ -28,6 +28,7 @@ SELECT
     , si.LASTMODIFIEDDATE
     , si.LASTUSERID
     , si.SCHEDULEID
+    , current_timestamp ROW_INSERT_TS
 FROM POC.LANDING.ITEMSSITE si
 join poc.analytics.clients c 
     on si.client_nm =c.name
