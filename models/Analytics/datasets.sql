@@ -19,7 +19,7 @@ SELECT
   , m.OPTIONSCSV
   , m.ISWRITELOCKED
   , m.ROLES
-
+,current_timestamp ROW_INSERT_TS
 FROM POC.HVMG_RAW."FC.MASTER"  m
 join poc.analytics.clients c
   on m.client_nm =c.name

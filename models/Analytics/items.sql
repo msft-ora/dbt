@@ -28,7 +28,7 @@ SELECT
   , i.ALTTAG1
   , i.ALTTAG2
   , i.NAMESHORT
-
+,current_timestamp ROW_INSERT_TS
 FROM POC.HVMG_RAW.ITEMS i
 join poc.analytics.clients c
   on i.client_nm =c.name
