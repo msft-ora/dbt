@@ -20,6 +20,6 @@ SELECT
   , t.RATE
   , t.CHANGEDBY
 ,current_timestamp ROW_INSERT_TS
-FROM POC.hvmg_raw.TRANSACTIONSPERIOD t
+FROM POC.hvmg_raw."FC.TRANSACTIONSPERIOD" t
 join poc.analytics.clients c
   on t.client_nm =c.name

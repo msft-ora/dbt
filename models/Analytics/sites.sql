@@ -5,6 +5,11 @@
 )
 }}
 
+with sitesroom as (
+select *
+from poc.hvmg_raw.sitesrooms
+qualify row_number() over (partition by client_nm,siteid,fcid order by date desc)=1
+)
 SELECT 
   c.CLIENTID
   , s.SITEID
@@ -36,6 +41,7 @@ SELECT
   , sb.exception
   , sb.exceptionreason
   , sb.units
+  , sr.amt roomcount
 ,current_timestamp ROW_INSERT_TS
 FROM POC.HVMG_RAW.SITES s
 join poc.analytics.clients c
@@ -44,3 +50,5 @@ left join POC.HVMG_RAW.SITESADDRESSES sa
   on s.client_nm=sa.client_nm and s.siteid=sa.siteid
 left join POC.HVMG_RAW.SITESBILLING sb
   on s.client_nm=sb.client_nm and s.siteid=sb.siteid
+left join sitesroom sr
+on s.client_nm=sr.client_nm and s.siteid::varchar=sr.siteid
