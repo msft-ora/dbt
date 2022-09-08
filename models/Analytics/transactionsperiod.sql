@@ -1,8 +1,7 @@
-{{
-  config(materialized='table'  ,
-  schema='ANALYTICS'
-)
-}}
+{{ config(alias='TRANSACTIONSPERIOD',
+          tags='analytics_transactions',
+          cluster_by=['CLIENTID','SITEID','FCID','YEAR','PERIOD']
+         ) }}
 
 SELECT 
   c.clientid
@@ -20,6 +19,6 @@ SELECT
   , t.RATE
   , t.CHANGEDBY
 ,current_timestamp ROW_INSERT_TS
-FROM POC.hvmg_raw.TRANSACTIONSPERIOD t
+FROM POC.RAW.TRANSACTIONSPERIOD t
 join poc.analytics.clients c
   on t.client_nm =c.name

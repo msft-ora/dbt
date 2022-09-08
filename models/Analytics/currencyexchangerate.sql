@@ -1,9 +1,6 @@
-
-{{
-  config(materialized='table'  ,
-  schema='ANALYTICS'
-)
-}}
+{{ config(alias='CURRENCYEXCHANGERATE',
+          tags='analytics_others'
+         ) }}
 
 SELECT 
     c.clientid
@@ -13,6 +10,6 @@ SELECT
     , ce.CurrencyExchangeRateTypeId
     , ce.IsActive
     ,current_timestamp ROW_INSERT_TS
-FROM poc.hvmg_raw.CurrencyExchangeRate ce
+FROM POC.RAW.CURRENCYEXCHANGERATE ce
 join poc.analytics.clients c
   on ce.client_nm =c.name

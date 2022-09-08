@@ -1,0 +1,4 @@
+dbt run --select tag:analytics_sites 
+dbt run --select tag:analytics_items 
+dbt run --select tag:analytics_others 
+dbt run --select tag:analytics_transactions 

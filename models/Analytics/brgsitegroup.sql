@@ -1,9 +1,6 @@
-{{
-  config(materialized='table'  ,
-  schema='ANALYTICS',
-  tags='site'
-)
-}}
+{{ config(alias='BRGSITEGROUP',
+          tags='analytics_sites'
+         ) }}
 
 
 select DISTINCT 

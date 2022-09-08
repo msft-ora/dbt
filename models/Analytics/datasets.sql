@@ -1,8 +1,6 @@
-{{
-  config(materialized='table'  ,
-  schema='ANALYTICS'
-)
-}}
+{{ config(alias='DATASETS',
+          tags='analytics_others'
+         ) }}
 
 SELECT 
   c.clientid
@@ -20,6 +18,6 @@ SELECT
   , m.ISWRITELOCKED
   , m.ROLES
 ,current_timestamp ROW_INSERT_TS
-FROM POC.HVMG_RAW."FC.MASTER"  m
+FROM POC.RAW.MASTER  m
 join poc.analytics.clients c
   on m.client_nm =c.name

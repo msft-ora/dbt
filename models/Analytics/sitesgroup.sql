@@ -1,8 +1,6 @@
-{{
-  config(materialized='table' ,
-  schema='ANALYTICS',
-  tags='site')
-}}
+{{ config(alias='SITESGROUP',
+          tags='analytics_sites'
+         ) }}
 
 SELECT 
   c.CLIENTID
@@ -10,6 +8,6 @@ SELECT
   , sg.TAG SITEGROUPCODE
   , sg.NAME SITEGROUPNAME
 ,current_timestamp ROW_INSERT_TS
-FROM POC.HVMG_RAW.SITESGROUP sg
+FROM POC.RAW.SITESGROUP sg
 join poc.analytics.clients c
   on sg.client_nm =c.name

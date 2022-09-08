@@ -1,8 +1,6 @@
-{{
-  config(materialized='table'  ,
-  schema='ANALYTICS'
-)
-}}
+{{ config(alias='TYPES',
+          tags='analytics_others'
+         ) }}
 
 SELECT 
 c.clientid
@@ -17,6 +15,6 @@ c.clientid
 , t.ITEMID
 , t.LASTMODIFIEDDATE
 ,current_timestamp ROW_INSERT_TS
-FROM POC.hvmg_raw.TYPES t
+FROM POC.RAW.TYPES t
 join poc.analytics.clients c
 on t.client_nm =c.name

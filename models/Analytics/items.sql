@@ -1,9 +1,6 @@
-{{
-  config(materialized='table'  ,
-  schema='ANALYTICS',
-  tags='item'
-)
-}}
+{{ config(alias='ITEMS',
+          tags='analytics_items'
+         ) }}
 
 
 SELECT 
@@ -29,6 +26,6 @@ SELECT
   , i.ALTTAG2
   , i.NAMESHORT
 ,current_timestamp ROW_INSERT_TS
-FROM POC.HVMG_RAW.ITEMS i
+FROM POC.RAW.ITEMS i
 join poc.analytics.clients c
   on i.client_nm =c.name

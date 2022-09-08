@@ -1,8 +1,6 @@
-{{
-  config(materialized='table'  ,
-  schema='ANALYTICS'
-)
-}}
+{{ config(alias='DATASETSSITE',
+          tags='analytics_others'
+         ) }}
 
 SELECT 
   c.clientid
@@ -16,6 +14,6 @@ SELECT
   , so.ENDPERIOD
   , so.UPDATEDAILYACTUALSSETTIME
 ,current_timestamp ROW_INSERT_TS
-FROM POC.HVMG_RAW."FC.SITEOPTIONS" so
+FROM POC.RAW.SITEOPTIONS so
 join poc.analytics.clients c
 on so.client_nm =c.name

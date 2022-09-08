@@ -1,16 +1,12 @@
-{{
-  config(materialized='table'  ,
-  schema='ANALYTICS',
-  tags='site'
-)
-}}
+{{ config(alias='SITES',
+          tags='analytics_sites'
+         ) }}
 
 SELECT 
   c.CLIENTID
   , s.SITEID
   , s.SITETAG
   , s.SITENAME
-  --, s.NAMESHORT
   , sa.ADDRESS ADDRESS1
   , s.SITEADDRESS2
   , sa.CITY SITECITY
@@ -37,10 +33,10 @@ SELECT
   , sb.exceptionreason
   , sb.units
 ,current_timestamp ROW_INSERT_TS
-FROM POC.HVMG_RAW.SITES s
+FROM POC.RAW.SITES s
 join poc.analytics.clients c
   on s.client_nm =c.name
-left join POC.HVMG_RAW.SITESADDRESSES sa
+left join POC.RAW.SITESADDRESSES sa
   on s.client_nm=sa.client_nm and s.siteid=sa.siteid
-left join POC.HVMG_RAW.SITESBILLING sb
+left join POC.RAW.SITESBILLING sb
   on s.client_nm=sb.client_nm and s.siteid=sb.siteid
